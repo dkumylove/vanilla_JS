@@ -85,6 +85,8 @@ const playerFat = "little bit";
 // // player[2] == handsome
 // // player[3] == fat          // 너무 번거로움
 // const player = ["jeun", 123212, true, "little bit"];
+// player[1] = 2323;  // 값 수정
+// player.push("potato");  // 값 추가
 
 // const player = {
 //     name : "jeun",
@@ -146,15 +148,15 @@ sayHello("Jeun", 10);
 sayHello("Nico", 23);
 sayHello("Dal", 21);
 
-function plus(a, b){
-    console.log(a + b);
-}
-function divide(a, b){
-    console.log(a / b);
-}
+// function plus(a, b){
+//     console.log(a + b);
+// }
+// function divide(a, b){
+//     console.log(a / b);
+// }
 
-plus(8, 60);
-divide(60, 4);
+// plus(8, 60);
+// divide(60, 4);
 
 const player = {
     name: "Jeun",
@@ -165,3 +167,28 @@ const player = {
 
 player.sayHello("Nico");
 player.sayHello("Dal");
+
+//////////////////////////////////////////////////////////////////
+const calculator = {
+    // +
+    add : function(a, b) {
+        console.log(a + b)
+    },
+    // -
+    sub : function(a, b) {
+        console.log(a - b)
+    },
+    // *
+    mul : function(a, b) {
+        console.log(a * b)
+    },
+    // /
+    div : function(a, b) {
+        console.log(a / b)
+    }
+};
+
+calculator.add(3, 4);
+calculator.sub(4, 5);
+calculator.mul(5, 4);
+calculator.div(29, 5);
