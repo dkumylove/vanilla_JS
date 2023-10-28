@@ -1,7 +1,9 @@
 // alert : 경고창띄움
+
 // const : constant(상수) 바뀌지 않는 값, 계속 유지됨
 // const 변수명 = 값 ;
 // 변수명을 지을떄 공백이 필요하다면 카멜표기법 사용
+
 // let : 바뀌는 값, 업데이트 가능, 원할때 바꿀 수 있다. but 보안에 취약, 가로채기 당할수 있음. 
 // let 변수명 = 값 ;
 // 바꿀때는 let를 붙이지 않음. 처음에 선언할떄만 붙인다.
@@ -10,16 +12,12 @@
 // const, let를 통해 몇몇 값을 보호할수 있다. const로 실수로 변경되는 것을 막아주고, 업데이트가 허용되는 변수의 경우 let 사용
 // 항상 const, 가끔 let, 절대노노 var
 
+// boolean : true = on or false = off => ""를 붙이면 문자로 인식함
+// 컴퓨터는 0 or 1 만 이식 0:off 1:on
+// null : 비어있다. 변수에 아무것도 없다는 뜻, 존재하지 않음, 정의되지 않음, 아무것도 없음
+// undefined : 정의되지 않음, 변수가 메모리에 만들어져 존재하지만 값이 주어지지 않음.
+// defined : 정의됨
 
-const a = 10;
-const b = 2;
-let myName = "jeun";
-
-console.log(a+b);
-console.log(a*b);
-console.log(a/b);
-console.log("hello " + myName);
-
-myName = "jieun"; 
-
-console.log("your new name is  " + myName);
+const amIFat = null; // 정의는 되어있지만 값은 null 상태
+let something; // 메모리 안에 존재하지만 정의되지 않음. 공간은 있는데 값이 들어가지 않은 상태
+console.log(something, amIFat);
