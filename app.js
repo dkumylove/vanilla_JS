@@ -42,7 +42,7 @@ console.log(something, amIFat);
 // array : 배열 [값, 값, ...] 
 // 여러줄의 코드를 간결하게 만들어 줌
 // const daysOfWeek1= ["mon" , "tue" , "wed" , "thu" , "fri" , "sat" , "sun"];
-// 배열의 값을 불러올때는 배열명[자리값]을 입력하게 된다. daysOfWeek1[3] = "thu"
+// 배열의 값을 불러올때는 배열명[자리값]을 입력하게 된다. daysOfWeek1[3] == "thu"
 // 배열에 다양한 타입 들어갈 수 있음 const nonsense = [1, 2, "hello", false, null, true, undefined];
 // 배열에 배열값 추가하기
 // 배열명.push(추가배열값)
@@ -67,3 +67,41 @@ console.log(daysOfWeek1);
 // array 안에 요일 더 추가하기
 daysOfWeek1.push("sun")
 console.log(daysOfWeek1);
+
+//////////////////////////////////////////////////////////////////
+// xx.xx 형식
+// object : 원시 타입(Primitives)을 제외한 나머지 값들(함수, 배열, 정규표현식 등)은 모두 객체
+// 키(key)과 값(value)으로 구성된 프로퍼티(Property)들의 집합
+// const 변수명 = { 키: 값 , 키: 값, ... }
+// const 안의 무언가를 업데이트 해도 문제발생 x
+
+// const playerName = "jeun";
+// const playerPoints = 123212;
+// const playerHandsome = true;
+// const playerFat = "little bit";
+
+// player[0] == name
+// player[1] == points
+// player[2] == handsome
+// player[3] == fat          // 너무 번거로움
+//const player = ["jeun", 123212, true, "little bit"];
+
+const player = {
+    name : "jeun",
+    points : 123212,
+    handsome : true,
+    fat : "little bit"
+}
+
+console.log(player);
+console.log(player.name);
+// 같은 결과값
+console.log(player["name"]);
+
+// const 안의 무언가를 업데이트 해도 문제발생 x
+player.handsome = false;
+console.log(player)
+player.lastName = "potato"
+player.points = player.points + 200000;
+console.log(player)
+
