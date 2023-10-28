@@ -75,33 +75,93 @@ console.log(daysOfWeek1);
 // const 변수명 = { 키: 값 , 키: 값, ... }
 // const 안의 무언가를 업데이트 해도 문제발생 x
 
-// const playerName = "jeun";
-// const playerPoints = 123212;
-// const playerHandsome = true;
-// const playerFat = "little bit";
+const playerName = "jeun";
+const playerPoints = 123212;
+const playerHandsome = true;
+const playerFat = "little bit";
 
-// player[0] == name
-// player[1] == points
-// player[2] == handsome
-// player[3] == fat          // 너무 번거로움
-//const player = ["jeun", 123212, true, "little bit"];
+// // player[0] == name
+// // player[1] == points
+// // player[2] == handsome
+// // player[3] == fat          // 너무 번거로움
+// const player = ["jeun", 123212, true, "little bit"];
 
-const player = {
-    name : "jeun",
-    points : 123212,
-    handsome : true,
-    fat : "little bit"
+// const player = {
+//     name : "jeun",
+//     points : 123212,
+//     handsome : true,
+//     fat : "little bit"
+// }
+
+// console.log(player);
+// console.log(player.name);
+// // 같은 결과값
+// console.log(player["name"]);
+
+// // const 안의 무언가를 업데이트 해도 문제발생 x
+// player.handsome = false;
+// console.log(player)
+// player.lastName = "potato"
+// player.points = player.points + 200000;
+// console.log(player)
+
+//////////////////////////////////////////////////////////////////
+// function : 계속 반복해서 사용할 수 있는 코드 조각
+// 코드를 캡슐화해서 실행을 여러번 할수 있게 해줌
+// function 함수이름 () { 실행내용 }
+// argument : function을 실행하는 동안 어떤 정보를 function에게 보낼수 있는 방법
+
+// function 없을떄
+console.log("Hello my name is Jeun");
+console.log("Hello my name is Nico");
+console.log("Hello my name is Dal");
+console.log("Hello my name is Shigatsu");
+console.log("Hello my name is Flynn");
+console.log("Hello my name is Flynn");
+console.log("Hello my name is Flynn");
+console.log("Hello my name is Flynn");
+console.log("Hello my name is Flynn");
+
+// function 있을떄, sayHello를 실행할 때 마다 {}안에 내용이 실행된다.
+// function sayHello(){
+//     console.log("Hello my name is C");
+// }
+// sayHello();
+// sayHello();
+// sayHello();
+
+// function sayHello(nameOfPerson){
+//     console.log("Hello my name is " + nameOfPerson);
+// }
+// sayHello("Jeun");
+// sayHello("Nico");
+// sayHello("Dal");
+
+// console.log("lalalala");
+
+function sayHello(nameOfPerson, age){
+    console.log("Hello my name is " + nameOfPerson + "and I'm " + age);
+}
+sayHello("Jeun", 10);
+sayHello("Nico", 23);
+sayHello("Dal", 21);
+
+function plus(a, b){
+    console.log(a + b);
+}
+function divide(a, b){
+    console.log(a / b);
 }
 
-console.log(player);
-console.log(player.name);
-// 같은 결과값
-console.log(player["name"]);
+plus(8, 60);
+divide(60, 4);
 
-// const 안의 무언가를 업데이트 해도 문제발생 x
-player.handsome = false;
-console.log(player)
-player.lastName = "potato"
-player.points = player.points + 200000;
-console.log(player)
+const player = {
+    name: "Jeun",
+    sayHello: function (otherPersonsName) {
+        console.log("hello " + otherPersonsName + " nice to meet you")
+    },
+};
 
+player.sayHello("Nico");
+player.sayHello("Dal");
