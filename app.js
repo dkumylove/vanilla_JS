@@ -397,3 +397,81 @@ console.log(title);
 // 아래 두개는 같은 결과를 낸다.
 const title = document.querySelector("#hello");
 const title = document.getElementById("hello");
+
+//////////////////////////////////////////////////////////////////
+const title = document.querySelector(".hello h1");
+const title = document.querySelector("div.hello:first-child h1");
+// 위에 두개 같은내용
+console.log(title);
+title.style.color = "blue";
+
+// event : 웹페이지에서 마우스를 클릭했을 때, 키를 입력했을 때, 특정요소에 포커스가 이동되었을 때 어떤 사건을 발생시키는 것 
+// 예를 들어 click을 하면 그게 event임, h1 위에 마우스가 올라가도 event임
+// 1. 마우스 이벤트
+//  click	요소에 마우스를 클릭했을 때 이벤트가 발생
+//  dbclick	요소에 마우스를 더블클릭했을 때 이벤트가 발생
+//  mouseover	요소에 마우스를 오버했을 때 이벤트가 발생
+//  mouseout	요소에 마우스를 아웃했을 때 이벤트가 발생
+//  mousedown	요소에 마우스를 눌렀을 때 이벤트가 발생
+//  mouseup	요소에 마우스를 떼었을 때 이벤트가 발생
+//  mousemove	요소에 마우스를 움직였을 때 이벤트가 발생
+//  contextmenu	context menu(마우스 오른쪽 버튼을 눌렀을 때 나오는 메뉴)가 나오기 전에 이벤트 발생
+
+// 2. 키 이벤트 
+//  keydown	키를 눌렀을 때 이벤트가 발생
+//  keyup	키를 떼었을 때 이벤트가 발생
+//  keypress	키를 누른 상태에서 이벤트가 발생 
+ 
+// 3.폼 이벤트
+//  focus	요소에 포커스가 이동되었을 때 이벤트 발생
+//  blur	요소에 포커스가 벗어났을 때 이벤트 발생
+//  change	요소에 값이 변경 되었을 때 이벤트 발생
+//  submit	submit 버튼을 눌렀을 때 이벤트 발생
+//  reset	reset 버튼을 눌렀을 때 이벤트 발생
+//  select	input이나 textarea 요소 안의 텍스트를 드래그하여 선택했을 때 이벤트 발생 
+ 
+// 4. 로드 및 기타 이벤트 
+//  load	페이지의 로딩이 완료되었을 때 이벤트 발생
+//  abort	이미지의 로딩이 중단되었을 때 이벤트 발생
+//  unload	페이지가 다른 곳으로 이동될 때 이벤트 발생
+//  resize	요소에 사이즈가 변경되었을 때 이벤트 발생
+//  scroll	스크롤바를 움직였을 때 이벤트 발생 
+
+// 이벤트핸들러 : 사용자가 실제 이벤트를 발생시켰을 때 그 이벤트에 대응하여 처리하는 것 
+// '이벤트 핸들러'는 앞에 'on'을 붙여 주고 이벤트에 대한 동작(함수)을 처리 
+
+
+// 유저가 title을 click할 경우에 자바스크립트가 개발자 대신 실행버튼을 눌러주게함
+const title = document.querySelector("div.hello:first-child h1");
+
+function handleTitleClick() {
+    console.log("title was clicked!") // 클릭할때 메시지 출력
+    title.style.color = "blue"; // 클릭할떄 글자 색상 파랑으로 변경
+}
+
+title.addEventListener("click", handleTitleClick);
+
+//////////////////////////////////////////////////////////////////
+// https://developer.mozilla.org/en-US/docs/Web/API/HTMLHeadingElement
+
+
+const title = document.querySelector("div.hello:first-child h1");
+
+console.dir(title);
+
+function handleTitleClick() {
+    title.style.color = "blue";
+}
+
+function handleMouseEnter(){
+    title.innerText = "mouse is here!" // 택스트 변경
+}
+
+function handleMouseLeave(){
+    title.innerText = "mouse is gone!" // 텍스트 변경
+}
+
+// 유저가 title을 click할 경우에 자바스크립트가 개발자 대신 실행버튼을 눌러주게함
+title.addEventListener("click", handleTitleClick);  // 클릭할때
+title.addEventListener("mouseenter", handleMouseEnter);   // 마우스를 올리면
+title.addEventListener("mouseleave", handleMouseLeave);   // 마우스를 내리면
