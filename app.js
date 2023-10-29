@@ -169,26 +169,90 @@ player.sayHello("Nico");
 player.sayHello("Dal");
 
 //////////////////////////////////////////////////////////////////
+// const calculator = {
+//     // +
+//     add : function(a, b) {
+//         console.log(a + b)
+//     },
+//     // -
+//     sub : function(a, b) {
+//         console.log(a - b)
+//     },
+//     // *
+//     mul : function(a, b) {
+//         console.log(a * b)
+//     },
+//     // /
+//     div : function(a, b) {
+//         console.log(a / b)
+//     },
+//     power : function(a, b) {
+//         console.log(a ** b)
+//     }
+// };
+
+// calculator.add(3, 4);
+// calculator.sub(4, 5);
+// calculator.mul(5, 4);
+// calculator.div(29, 5);
+// calculator.power(2, 6);
+
+//////////////////////////////////////////////////////////////////
 const calculator = {
     // +
     add : function(a, b) {
-        console.log(a + b)
+        return a + b
     },
     // -
     sub : function(a, b) {
-        console.log(a - b)
+        return a - b
     },
     // *
     mul : function(a, b) {
-        console.log(a * b)
+        return a * b
     },
     // /
     div : function(a, b) {
-        console.log(a / b)
+        return a / b
+    },
+    power : function(a, b) {
+        return a ** b
     }
 };
 
-calculator.add(3, 4);
-calculator.sub(4, 5);
-calculator.mul(5, 4);
-calculator.div(29, 5);
+// calculator.add(3, 4);
+// calculator.sub(4, 5);
+// calculator.mul(5, 4);
+// calculator.div(29, 5);
+// calculator.power(2, 6);
+//console.log(calculator.add(3, 4));
+
+const addResult = calculator.add(3, 4);
+const subResult = calculator.sub(addResult, 10);
+const mulResult = calculator.mul(10, subResult);
+const divResult = calculator.div(mulResult, addResult);
+const powerResult = calculator.power(divResult, subResult);
+
+console.log(addResult);
+
+
+
+const age = 96;
+function calculateKrAge(ageOfForeigner){
+    return ageOfForeigner + 2;
+}
+
+const krAge = calculateKrAge(age);
+
+console.log(krAge);
+
+// const age = 96;
+// function calculateKrAge(96){
+//     return 96 + 2;
+// }
+
+// const krAge = calculateKrAge(96); // const krAge = 98;
+
+// console.log(krAge); // 결과 98 출력
+
+
