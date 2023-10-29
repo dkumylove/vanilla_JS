@@ -305,12 +305,28 @@ if(isNaN(age) || age < 0) {
     console.log("You can drink(음주가능)");
 } else if(age > 50 && age <= 80) {
     console.log("You should exercise(운동하셔야합니다");
-} else if(age > 80){
+} else if(age === 100) {
+    console.log("wow you are wise(당신은현명하군요)");
+}else if(age > 80){
     console.log("You can do whatever you want(뭐든 원하는대로 하세요");
-} else {
-    console.log();
-}
+} 
 
 //////////////////////////////////////////////////////////////////
 // && : and연산자 그리고 둘다 true이어야 true
+// true && true = true
+// true && false = false
+// false && true = false
+// false && false = false
+
 // || : or연산자 또는 둘중 하나만이라도 true이면 true
+// true || true = true
+// true || false = true
+// false || true = true
+// false || false = false
+
+// = 오늘쪽에 있는 값을 왼쪽 변수에 넣는다.
+// === 같다는 뜻
+// !== 같지 않다. ! : not
+// 코드 진행은 위에서 아래로 진행되기 때문에 순서 또한 중요함
+
+// if((a && b) || (c && d) ||(x || y)) {}
