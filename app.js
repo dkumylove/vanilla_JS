@@ -241,22 +241,76 @@ console.log(addResult);
 
 
 
-const age = 96;
-function calculateKrAge(ageOfForeigner){
-    return ageOfForeigner + 2;
-}
-
-const krAge = calculateKrAge(age);
-
-console.log(krAge);
-
 // const age = 96;
-// function calculateKrAge(96){
-//     return 96 + 2;
+// function calculateKrAge(ageOfForeigner){
+//     return ageOfForeigner + 2;
 // }
 
-// const krAge = calculateKrAge(96); // const krAge = 98;
+// const krAge = calculateKrAge(age);
 
-// console.log(krAge); // 결과 98 출력
+// console.log(krAge);
+
+// // const age = 96;
+// // function calculateKrAge(96){
+// //     return 96 + 2;
+// // }
+
+// // const krAge = calculateKrAge(96); // const krAge = 98;
+
+// // console.log(krAge); // 결과 98 출력
 
 //////////////////////////////////////////////////////////////////
+// conditional(조건문) : true인지 false인지 알려줌, 중요함
+// if : true이면 실행
+// else : false이면 실행
+// prompt : 사용자에게 입력을 요청하는 프롬프트 상자를 화면에 표시하기 위해 사용
+// 프롬프트 상자에서 계속 진행하려면 "확인" 또는 "취소" 버튼을 클릭해야 함, 답을 듣기전까지 실행은 멈춤
+// const promptObj = prompt(message, default); 
+// 첫 번째 인수는 프롬프트 상자에 표시되는 레이블이며, 두 번째 인수는 프롬프트 상자의 텍스트 박스에 표시되는 문자열
+// 잘 안쓰는 이유 : 메시지가 별로 안이쁨, css스타일을 적용할수 없고, 버튼도 바꿀수 없음. 브라우저에서 팝업을 제안하기도 하기때문(오래된방법)
+// 요즘은 대부분이 HTML,CSS로 만든 자신만의 창을 사용해 사용자가 값을 작성할수 있게함.
+
+const age = parseInt(prompt("How old are you?"));
+
+console.log(age);
+// typeof : 값의 타입을 보고싶은때 사용
+
+// // 타입변환하기
+// "15" => 15 
+// // 자바와 비슷
+// parseInt("15");
+
+console.log(typeof "15", typeof parseInt("15"));
+
+//////////////////////////////////////////////////////////////////
+// siNaN(number: number) : boolean : 넘버가 아닌 것, 숫자타입이 아닌 것(숫자타입 : false, 숫자가아닌타입 : true)
+// 하나의 인자를 주면 숫자타입인지 확인후 boolean 값을 반환함.
+
+console.log(isNaN(age));
+
+// if사용조건 자바와 비슷
+// condition : boolean으로 판별 가능해야함.
+// if(condition){
+//     /// condition === true 때 실행
+// } else {
+//     // condition === false 때 실행
+// }
+
+// console.log(isNaN(age)); if 조건문으로 바꾸기. 
+if(isNaN(age) || age < 0) {
+    console.log("Please Write a real positive number(양수를 입력해주세요)");
+} else if(age < 18) {
+    console.log("You are too young(당신은 너무 어려요)");
+} else if(age >= 18 && age <= 50) {
+    console.log("You can drink(음주가능)");
+} else if(age > 50 && age <= 80) {
+    console.log("You should exercise(운동하셔야합니다");
+} else if(age > 80){
+    console.log("You can do whatever you want(뭐든 원하는대로 하세요");
+} else {
+    console.log();
+}
+
+//////////////////////////////////////////////////////////////////
+// && : and연산자 그리고 둘다 true이어야 true
+// || : or연산자 또는 둘중 하나만이라도 true이면 true
