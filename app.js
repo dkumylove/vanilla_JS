@@ -335,6 +335,7 @@ if(isNaN(age) || age < 0) {
 //////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////
 // document : 브라우저에 이미 존재하는 object, HTML을 가리키는 객체
+// document = HTML
 // console.dir(document) 호출하면 객체라는 것을 확인할수 있다.
 // title는 자바스크립트에서 정의한것 없다. (HTML로 정의한것)
 // 자바스크립트 관점으로 보여주는 것
@@ -348,3 +349,30 @@ if(isNaN(age) || age < 0) {
 
 // 읽어오는 것 뿐만아니라 변경도 가능
 // document.title = "Hi" 입력하면 메인 타이틀이 바뀐다.
+
+//////////////////////////////////////////////////////////////////
+// 콘솔에 document.getElementById("title") 입력하면
+// <h1 id="title">Grab me!</h1> 출력함
+
+const title = document.getElementById("title");
+
+console.log(title);
+// 위와 같은 결과 같이 출력됨
+console.dir(title);
+// 다양한 내용이 나옴. 그 모든 것은 HTML에서 할수 있는 것
+
+// 자바스크립트는 HTML에서 element를 가지고 오지만 HTML자체를 보여주느는 않는다
+// 자바스크립트가 보여주는 것은 HTML에서 표현하고 있는 object(객체)이다
+
+title.innerText = "Got you!"
+// 타이틀 내용이 변경됨
+
+// 자바스크립트에서 이렇게 변경할수 있는이유
+// 1. HTML 문서 태그에 id 추가됨
+// 2. id를 통해 element는 document의 함수인 getElementById란 함수로 불러옴
+
+// HTML을 자바스크립트에서 읽어올 수 있어야 한다.
+// HTML과 상호작용을 가능하게 해줌
+// 브라우저에서 그냥 사용할 수 있는 document라는 object
+
+// 정말 중요한 부분임. 모든 것은 이 개념에서 부터 시작함
