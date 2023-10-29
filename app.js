@@ -376,3 +376,24 @@ title.innerText = "Got you!"
 // 브라우저에서 그냥 사용할 수 있는 document라는 object
 
 // 정말 중요한 부분임. 모든 것은 이 개념에서 부터 시작함
+
+//////////////////////////////////////////////////////////////////
+
+const hellos = document.getElementsByClassName("hello");
+console.log(hellos);
+// hello라는 이름을 가진 클래스들을 모두 호출, 배열로 출력함(값이 1개여도 배열로 나타냄)
+
+const title = document.getElementsByTagName("h1");
+console.log(title);
+
+// querySelector() : element를 CSS방식으로 검색할수 있음
+// 앞으로 자주사용하게 될 함수임
+// 단 첫번쨰 하나의 element를 리턴함.( 항목이 많아져도 배열로 표시하지 않고 첫번쨰꺼면 출력함)
+const title = document.querySelector(".hello h1");
+console.log(title);
+// <h1>Grab me!</h1>값을 출력함
+// querySelectorAll() : 전체를 다 가져오고 싶다면(배열로 가져옴)
+
+// 아래 두개는 같은 결과를 낸다.
+const title = document.querySelector("#hello");
+const title = document.getElementById("hello");

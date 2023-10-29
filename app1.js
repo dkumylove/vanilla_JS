@@ -1,5 +1,6 @@
-const title = document.getElementById("title");
+// querySelector() : element를 CSS방식으로 검색할수 있음
 
-title.innerText = "Got you!"
+const title = document.querySelector(".hello h1");
 
-console.log(title.id);
+title.innerText = "Hello"
+console.log(title);
