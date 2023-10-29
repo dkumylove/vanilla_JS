@@ -2,40 +2,14 @@
 
 const h1 = document.querySelector("div.hello:first-child h1");
 
+// h1의 색이 blue이면 tomato색으로 바꾸고 아니면 blue로 바꾼다.
 function handleTitleClick() {
-    h1.style.color = "blue";
+    h1.classList.toggle("clicked")
 }
-
-function handleMouseEnter() {
-    h1.innerText = "mouse is here!"
-}
-
-function handleMouseLeave() {
-    h1.innerText = "mouse is gone!"
-}
-
-function handleWindowResize() {
-    document.body.style.backgroundColor = "tomato";
-}
-
-function handleWindowCopy() {
-    alert("copier!");
-}
-
-function handleWindowOffline() {
-    alert("SOS no WIFI");
-}
-
-function handleWindowOnline() {
-    alert("All gooood");
-}
+// classList : 말그대로 class들의 목록으로 작업할수 있게 허용해줌
+// .contains : 포함
+// .remove : 지움
+// .add : 추가
 
 // 유저가 title을 click할 경우에 자바스크립트가 개발자 대신 실행버튼을 눌러주게함
 h1.addEventListener("click", handleTitleClick);  // 클릭할때
-h1.addEventListener("mouseenter", handleMouseEnter);   // 마우스를 올리면
-h1.addEventListener("mouseleave", handleMouseLeave);   // 마우스를 내리면
-
-window.addEventListener("resize", handleWindowResize);   // 브라우저 창의 크기가 바뀌면
-window.addEventListener("copy", handleWindowCopy);    // 복사할떄 
-window.addEventListener("offline", handleWindowOffline);  // 오프라인일떄
-window.addEventListener("online", handleWindowOnline);   // 온라인일떄

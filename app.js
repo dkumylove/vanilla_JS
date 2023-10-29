@@ -523,3 +523,86 @@ window.addEventListener("resize", handleWindowResize);   // 브라우저 창의 
 window.addEventListener("copy", handleWindowCopy);    // 복사할떄 
 window.addEventListener("offline", handleWindowOffline);  // 오프라인일떄
 window.addEventListener("online", handleWindowOnline);   // 온라인일떄
+
+
+//////////////////////////////////////////////////////////////////
+function handleTitleClick() {
+    console.log(h1.style.color);
+    h1.style.color = "blue";
+    console.log(h1.style.color);
+}
+
+// h1의 색이 blue이면 tomato색으로 바꾸고 아니면 blue로 바꾼다.
+function handleTitleClick() {
+    if(h1.style.color === "blue") {
+        h1.style.color = "tomato";
+    } else {
+        h1.style.color = "blue";
+    }
+}
+// 같은 결과
+function handleTitleClick() {
+    const currentColor = h1.style.color; // 변하지 않음
+    let newColor;  // 변함
+    if(currentColor === "blue") {
+        newColor = "tomato";
+    } else {
+        newColor = "blue";
+    }
+    h1.style.color = newColor;
+}
+
+//////////////// 같은 결과
+// CSS
+.active {
+    color: tomato;
+}
+
+// JS
+function handleTitleClick() {
+    if(h1.className === "active") {
+        h1.className = "";
+    } else {
+        h1.className = "active";
+    }
+}
+
+function handleTitleClick() {
+    const clickedClass = "clicked"   // 변수를 선언함으로서 에러발생을 줄임
+    if(h1.className === clickedClass) {
+        h1.className = "";
+    } else {
+        h1.className = clickedClass;
+    }
+}
+/////////////////
+
+//////////////////////////////////////////////////////////////////
+// sexy-font를 유지하면서 clicked를 추가, 삭제, 추가하는 방법
+//CSS
+.clicked {
+    color: tomato;
+}
+
+.sexy-font {
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+//JS
+function handleTitleClick() {
+    const clickedClass = "clicked"   // 변수를 선언함으로서 에러발생을 줄임
+    if(h1.classList.contains(clickedClass)) {
+        h1.classList.remove(clickedClass);
+    } else {
+        h1.classList.add(clickedClass);
+    }
+}
+// classList : 말그대로 class들의 목록으로 작업할수 있게 허용해줌
+// .contains : 포함
+// .remove : 지움
+// .add : 추가
+
+// 같은 결과, 코드를 확연히 줄일수 있다.
+function handleTitleClick() {
+    h1.classList.toggle("clicked")
+}
