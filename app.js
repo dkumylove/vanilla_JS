@@ -743,29 +743,73 @@ link.addEventListener("click", handleLinkclick);
 // localStorage.getItem("Key") // 입력되어있는 value 값을 출력
 // localStorage.removeItem("Key") // Application> Local Storage에 저장되어있는 값 삭제
 
-const loginForm = document.querySelector("#login-form");
-const loginInput = document.querySelector("#login-form input");
-const greeting = document.querySelector("#greeting");
+// const loginForm = document.querySelector("#login-form");
+// const loginInput = document.querySelector("#login-form input");
+// const greeting = document.querySelector("#greeting");
 
-const HIDDEN_CLASSNAME = "hidden";
+// const HIDDEN_CLASSNAME = "hidden";
 
-function onLoginSubmit(event) {
-    // 브라우저의 기본동작을 막아줌
-    event.preventDefault();
-    // form에 hidden이라는 class를 추가
-    loginForm.classList.add(HIDDEN_CLASSNAME);
-    // loginInput의 값을 변수에 저장
-    const username = loginInput.value;
-    // Application> Local Storage에 Key값과 Value값을 저장
-    localStorage.setItem("username", username);
-    // 기본적으로 비어있는 h1인 greeting을 가져다가 hello username이라는 텍스트 출력
-    greeting.innerText = `Hello ${username}`;
-    // h1에서 hidden이라는 class를 삭제
-    greeting.classList.remove(HIDDEN_CLASSNAME);
-}
+// function onLoginSubmit(event) {
+//     // 브라우저의 기본동작을 막아줌
+//     event.preventDefault();
+//     // form에 hidden이라는 class를 추가
+//     loginForm.classList.add(HIDDEN_CLASSNAME);
+//     // loginInput의 값을 변수에 저장
+//     const username = loginInput.value;
+//     // Application> Local Storage에 Key값과 Value값을 저장
+//     localStorage.setItem("username", username);
+//     // 기본적으로 비어있는 h1인 greeting을 가져다가 hello username이라는 텍스트 출력
+//     greeting.innerText = `Hello ${username}`;
+//     // h1에서 hidden이라는 class를 삭제
+//     greeting.classList.remove(HIDDEN_CLASSNAME);
+// }
 
-loginForm.addEventListener("submit", onLoginSubmit);
+// loginForm.addEventListener("submit", onLoginSubmit);
 
 
 //////////////////////////////////////////////////////////////////
 // # 4.6
+// const loginForm = document.querySelector("#login-form");
+// const loginInput = document.querySelector("#login-form input");
+// const greeting = document.querySelector("#greeting");
+
+// const HIDDEN_CLASSNAME = "hidden";
+// const USERNAME_KEY = "username"
+
+// function onLoginSubmit(event) {
+//     // 브라우저의 기본동작을 막아줌
+//     event.preventDefault();
+//     // form에 hidden이라는 class를 추가
+//     loginForm.classList.add(HIDDEN_CLASSNAME);
+//     // loginInput의 값을 변수에 저장
+//     const username = loginInput.value;
+//     // Application> Local Storage에 Key값과 Value값을 저장
+//     localStorage.setItem(USERNAME_KEY, username);
+//     // 기본적으로 비어있는 h1의 id=greeting을 가져다가 hello username이라는 텍스트 출력
+//     greeting.innerText = `Hello ${username}`;
+//     // h1에서 hidden이라는 class를 삭제
+//     greeting.classList.remove(HIDDEN_CLASSNAME);
+// }
+
+// function paintGreetings() {}
+
+// // Application> Local Storage에 저장되어있는 값(유저정보)을 변수에 저장
+// // Application> Local Storage에 저장된 값이 없으면 null반환, 이를 변수에 저장
+// const savedUsername = localStorage.getItem(USERNAME_KEY);
+
+// // 만약 avedUsername값이 null값이면
+// if(savedUsername === null) {
+//     // show the form
+//     // form의 hidden class명을 지움
+//     loginForm.classList.remove(HIDDEN_CLASSNAME);
+//     loginForm.addEventListener("submit", onLoginSubmit);
+// } else {
+//     // show the greetings
+//     // h1의 id = greeting을 가져다가 hello savedUsername("username")이라는 텍스트 출력
+//     greeting.innerText = `Hello ${savedUsername}`;
+//     // h1의 hidden class명을 지움
+//     greeting.classList.remove(HIDDEN_CLASSNAME);
+// }
+
+// 너무 복작해짐. 중복되는 부분을 함수로 만듬
+
