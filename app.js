@@ -647,27 +647,45 @@ h1.addEventListener("click", handleTitleClick);  // 클릭할때
 
 //////////////////////////////////////////////////////////////////
 // #4.1
-const loginInput = document.querySelector("#login-form input");
-const loginbutton = document.querySelector("#login-form button");
+// const loginInput = document.querySelector("#login-form input");
+// const loginbutton = document.querySelector("#login-form button");
 
-function onLoginBtnClick() {
-    const username = loginInput.value;
-    if(username === ""){
-        alert("Please write your name.");
-    } else if(username.length > 15) {
-        alert("Your name is too long.");
-    }
-}
+// function onLoginBtnClick() {
+//     const username = loginInput.value;
+//     if(username === ""){
+//         alert("Please write your name.");
+//     } else if(username.length > 15) {
+//         alert("Your name is too long.");
+//     }
+// }
 
-loginbutton.addEventListener("click", onLoginBtnClick)
+// loginbutton.addEventListener("click", onLoginBtnClick)
 
 // HTML <form>태그를 사용하면서 자바스크립트에 코드가 간결해짐
-const loginInput = document.querySelector("#login-form input");
-const loginbutton = document.querySelector("#login-form button");
+// const loginInput = document.querySelector("#login-form input");
+// const loginbutton = document.querySelector("#login-form button");
 
-function onLoginBtnClick() {
-    const username = loginInput.value;
-    console.log(username);
+// function onLoginBtnClick() {
+//     const username = loginInput.value;
+//     console.log(username);
+// }
+
+// loginbutton.addEventListener("click", onLoginBtnClick)
+
+//////////////////////////////////////////////////////////////////
+// #4.2
+// preventDefault()
+// 브라우저에서 기본적으로 발생하는 이벤트/ 기본동작을 막아줌
+// a 태그를 눌렀을때도 href 링크로 이동하지 않게 할 경우
+// form 안에 submit 역할을 하는 버튼을 눌렀어도 새로 실행하지 않게 하고싶을 경우 (submit은 작동됨)
+
+const loginForm = document.querySelector("#login-form");
+const loginInput = document.querySelector("#login-form input");
+
+
+function onLoginSubmit(tomato) {
+    tomato.preventDefault();
+    console.log(loginInput.value);
 }
 
-loginbutton.addEventListener("click", onLoginBtnClick)
+loginForm.addEventListener("submit", onLoginSubmit)
