@@ -878,13 +878,40 @@ if(savedUsername === null) {
 // 연월일, 시분초의 정보와 함께 밀리초(millisecond)의 정보도 함께 제공
 // 정리링크 https://inpa.tistory.com/entry/JS-%F0%9F%93%9A-Date-%EB%A9%94%EC%86%8C%EB%93%9C-%EC%A0%95%EB%A6%AC#date_constructor
 
+// const clock = document.querySelector("h2#clock");
+
+// function getClock() {
+//     // 현재시간을 변수에 저장
+//     const date = new Date();
+//     // 현재 시:분:초를 clock("h2#clock")변수의 텍스트로 출력
+//     clock.innerText = (`${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`);
+// }
+
+// // 즉시호출
+// getClock()
+// // getClock함수를 1초마다 반복
+// setInterval(getClock, 1000); 
+
+//////////////////////////////////////////////////////////////////
+// 5.2 clock.js
+// padStart() : 현재 문자열의 시작을 다른 문자열로 채워, 주어진 길이를 만족하는 새로운 문자열을 반환
+//              채워넣기는 대상 문자열의 시작(좌측)부터 적용
+// string.padStart(목표길이, 채울 값)
+// ex) "1".padStart(2,"0"); --> 01 출력함
+// padEnd()함수 string.padEnd(목표길이, 채울 값) // 문자열 끝부터 채워짐
+// ex) "1".padEnd(2,"0"); --> 10 출력함
+
 const clock = document.querySelector("h2#clock");
 
 function getClock() {
     // 현재시간을 변수에 저장
     const date = new Date();
-    // 현재 시:분:초를 clock("h2#clock")변수의 텍스트로 출력
-    clock.innerText = (`${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`);
+    // 현재 시, 분, 초를 구하고 두자리 형식으로 바꾸어 변수에 저장
+    const hours = String(date.getHours()).padStart(2, "0");
+    const minutes = String(date.getMinutes()).padStart(2, "0");
+    const seconds = String(date.getSeconds()).padStart(2, "0");
+    // clock("h2#clock")변수의 텍스트로 출력
+    clock.innerText = `${hours} : ${minutes} : ${seconds}`;
 }
 
 // 즉시호출
@@ -893,4 +920,4 @@ getClock()
 setInterval(getClock, 1000); 
 
 //////////////////////////////////////////////////////////////////
-// 5.1 clock.js
+//
