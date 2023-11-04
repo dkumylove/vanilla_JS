@@ -554,9 +554,9 @@ function handleTitleClick() {
 
 //////////////// 같은 결과
 // CSS
-.active {
-    color: tomato;
-}
+// .active {
+//     color: tomato;
+// }
 
 // JS
 function handleTitleClick() {
@@ -580,13 +580,13 @@ function handleTitleClick() {
 //////////////////////////////////////////////////////////////////
 // sexy-font를 유지하면서 clicked를 추가, 삭제, 추가하는 방법
 //CSS
-.clicked {
-    color: tomato;
-}
+// .clicked {
+//     color: tomato;
+// }
 
-.sexy-font {
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
+// .sexy-font {
+//     font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+// }
 
 //JS
 function handleTitleClick() {
@@ -606,3 +606,32 @@ function handleTitleClick() {
 function handleTitleClick() {
     h1.classList.toggle("clicked")
 }
+
+//////////////////////////////////////////////////////////////////
+// querySelector() : element를 CSS방식으로 검색할수 있음
+
+const h1 = document.querySelector("div.hello:first-child h1");
+
+// h1의 색이 blue이면 tomato색으로 바꾸고 아니면 blue로 바꾼다.
+function handleTitleClick() {
+    h1.classList.toggle("clicked")
+}
+// classList : 말그대로 class들의 목록으로 작업할수 있게 허용해줌
+// .contains : 포함
+// .remove : 지움
+// .add : 추가
+
+// 유저가 title을 click할 경우에 자바스크립트가 개발자 대신 실행버튼을 눌러주게함
+h1.addEventListener("click", handleTitleClick);  // 클릭할때
+
+
+//////////////////////////////////////////////////////////////////
+// 같은결과 다른 코드
+const loginForm = document.getElementById("login-form");
+const loginForm = document.querySelector("#login-form");
+
+// 같은결과 다른 코드, 코드 줄임
+const loginForm = document.getElementById("login-form");
+const loginInput = loginForm.querySelector("input");
+const loginbutton = loginForm.querySelector("button");
+
