@@ -679,23 +679,23 @@ h1.addEventListener("click", handleTitleClick);  // 클릭할때
 // a 태그를 눌렀을때도 href 링크로 이동하지 않게 할 경우
 // form 안에 submit 역할을 하는 버튼을 눌렀어도 새로 실행하지 않게 하고싶을 경우 (submit은 작동됨)
 
-const loginForm = document.querySelector("#login-form");
-const loginInput = document.querySelector("#login-form input");
+// const loginForm = document.querySelector("#login-form");
+// const loginInput = document.querySelector("#login-form input");
 
-const link = document.querySelector("a");
+// const link = document.querySelector("a");
 
-function onLoginSubmit(event) {
-    event.preventDefault();
-    console.log(loginInput.value);
-}
+// function onLoginSubmit(event) {
+//     event.preventDefault();
+//     console.log(loginInput.value);
+// }
 
-function handleLinkclick(event) {
-    event.preventDefault();
-    console.dir(event);
-}
+// function handleLinkclick(event) {
+//     event.preventDefault();
+//     console.dir(event);
+// }
 
-loginForm.addEventListener("submit", onLoginSubmit);
-link.addEventListener("click", handleLinkclick);
+// loginForm.addEventListener("submit", onLoginSubmit);
+// link.addEventListener("click", handleLinkclick);
 
 //////////////////////////////////////////////////////////////////
 // # 4.4
@@ -855,3 +855,18 @@ if(savedUsername === null) {
     paintGreetings(savedUsername);
 }
 
+//////////////////////////////////////////////////////////////////
+// 5.0 clock.js
+// setInterval() : 어떤 코드를 일정한 시간 간격을 두고 반복해서 실행하고 싶을 때 사용
+// setInterval(실행할코드를 답고있는함수, 반복주기를 밀리초(ms)단위)
+// ex) setInterval(sayHello, 5000); // 5초마다 sayHello 실행
+
+const clock = document.querySelector("h2#clock");
+
+function sayHello() {
+    console.log("hello");
+}
+
+setInterval(sayHello, 5000);
+
+//////////////////////////////////////////////////////////////////
