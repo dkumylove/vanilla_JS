@@ -861,12 +861,36 @@ if(savedUsername === null) {
 // setInterval(실행할코드를 답고있는함수, 반복주기를 밀리초(ms)단위)
 // ex) setInterval(sayHello, 5000); // 5초마다 sayHello 실행
 
-const clock = document.querySelector("h2#clock");
+// const clock = document.querySelector("h2#clock");
 
-function sayHello() {
-    console.log("hello");
-}
+// function sayHello() {
+//     console.log("hello");
+// }
 
-setInterval(sayHello, 5000);
+// setInterval(sayHello, 5000);
 
 //////////////////////////////////////////////////////////////////
+// 5.1 clock.js
+// setTimeout() : 어떤 코드를 바로 실행하지 않고 일정 시간 기다린 후 실행해야하는 경우 사용
+// setTimeout(실행할 코드를 담고 있는 함수, 지연 시간을 밀리초(ms) 단위)
+
+// Date 객체를 사용하여 매 순간 변화하는 시간과 날짜에 관한 정보를 손쉽게 얻을 수 있다.
+// 연월일, 시분초의 정보와 함께 밀리초(millisecond)의 정보도 함께 제공
+// 정리링크 https://inpa.tistory.com/entry/JS-%F0%9F%93%9A-Date-%EB%A9%94%EC%86%8C%EB%93%9C-%EC%A0%95%EB%A6%AC#date_constructor
+
+const clock = document.querySelector("h2#clock");
+
+function getClock() {
+    // 현재시간을 변수에 저장
+    const date = new Date();
+    // 현재 시:분:초를 clock("h2#clock")변수의 텍스트로 출력
+    clock.innerText = (`${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`);
+}
+
+// 즉시호출
+getClock()
+// getClock함수를 1초마다 반복
+setInterval(getClock, 1000); 
+
+//////////////////////////////////////////////////////////////////
+// 5.1 clock.js
