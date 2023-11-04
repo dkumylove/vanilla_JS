@@ -610,7 +610,7 @@ function handleTitleClick() {
 //////////////////////////////////////////////////////////////////
 // querySelector() : element를 CSS방식으로 검색할수 있음
 
-const h1 = document.querySelector("div.hello:first-child h1");
+//const h1 = document.querySelector("div.hello:first-child h1");
 
 // h1의 색이 blue이면 tomato색으로 바꾸고 아니면 blue로 바꾼다.
 function handleTitleClick() {
@@ -626,12 +626,48 @@ h1.addEventListener("click", handleTitleClick);  // 클릭할때
 
 
 //////////////////////////////////////////////////////////////////
+//#4.0
 // 같은결과 다른 코드
-const loginForm = document.getElementById("login-form");
-const loginForm = document.querySelector("#login-form");
+//const loginForm = document.getElementById("login-form");
+//const loginInput = loginForm.querySelector("input");
+//const loginbutton = loginForm.querySelector("button");
 
 // 같은결과 다른 코드, 코드 줄임
-const loginForm = document.getElementById("login-form");
-const loginInput = loginForm.querySelector("input");
-const loginbutton = loginForm.querySelector("button");
+//const loginForm = document.getElementById("login-form");
+//const loginForm = document.querySelector("#login-form");
 
+// const loginInput = document.querySelector("#login-form input");
+// const loginbutton = document.querySelector("#login-form button");
+
+// function onLoginBtnClick() {
+//     console.log(loginInput.value)
+// }
+
+// loginbutton.addEventListener("click", onLoginBtnClick)
+
+//////////////////////////////////////////////////////////////////
+// #4.1
+const loginInput = document.querySelector("#login-form input");
+const loginbutton = document.querySelector("#login-form button");
+
+function onLoginBtnClick() {
+    const username = loginInput.value;
+    if(username === ""){
+        alert("Please write your name.");
+    } else if(username.length > 15) {
+        alert("Your name is too long.");
+    }
+}
+
+loginbutton.addEventListener("click", onLoginBtnClick)
+
+// HTML <form>태그를 사용하면서 자바스크립트에 코드가 간결해짐
+const loginInput = document.querySelector("#login-form input");
+const loginbutton = document.querySelector("#login-form button");
+
+function onLoginBtnClick() {
+    const username = loginInput.value;
+    console.log(username);
+}
+
+loginbutton.addEventListener("click", onLoginBtnClick)
