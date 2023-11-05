@@ -921,8 +921,8 @@ setInterval(getClock, 1000);
 
 //////////////////////////////////////////////////////////////////
 // #6.0 quotes.js
-//// 배열 첫번째 값을 콘솔에 출력하기
-//console.log(quotes[0]);
+// 배열 첫번째 값을 콘솔에 출력하기
+console.log(quotes[0]);
 // Math.random() : 0=< x <1 값을 랜덤으로 출력함.
 // round() : 소수를 가장가까운 정수로 출력. 반올림
 // ceil() : 숫자를 천장까지 높여줌. 올림
@@ -981,3 +981,34 @@ const todaysQuaote = quotes[Math.floor(Math.random() * quotes.length)];
 // quote의 Text에 배열을 랜던으로 가져와 todaysQuaote 변수에 저장된 값을 넣음
 quote.innerText = todaysQuaote.quote;
 author.innerText = todaysQuaote.author;
+
+
+//////////////////////////////////////////////////////////////////
+// #6.1 background.js
+// 배열에서 랜덤으로 가져온것을 콘솔에 출력
+console.log(chosenImage);
+
+//createElement() : HTML요소를 추가하는 코드
+
+// 코드 문자열형식으로 만들기
+bgImage.src = `img/${chosenImage}`;
+
+console.log(bgImage); // 출력
+// <img scr = "img/1.jpg"> //형식으로 보며임
+
+//appendChild() : body에 html을 추가할떄 사용
+
+// 이미지 배열
+const images = [ "0.jpg", "1.jpg", "2.jpg" ];
+
+// 배열을 랜던으로 가져와 chosenImage 변수에 저장
+const chosenImage = images[Math.floor(Math.random() * images.length)];
+
+// HTML요소를 추가하는 코드 - img
+const bgImage = document.createElement("img");
+
+// 코드 문자열형식으로 만들기
+bgImage.src = `img/${chosenImage}`;
+
+// 문자엻형식의 코드를 바디에 찾아가 넣기
+document.body.appendChild(bgImage);
