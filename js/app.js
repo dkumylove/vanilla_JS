@@ -1012,3 +1012,27 @@ bgImage.src = `img/${chosenImage}`;
 
 // 문자엻형식의 코드를 바디에 찾아가 넣기
 document.body.appendChild(bgImage);
+
+
+//////////////////////////////////////////////////////////////////
+// #7.0 todo.js
+// 같은 결과 다른 코드
+// const toDoInput = toDoForm.querySelector("input");
+// const toDoInput = document.querySelector("#todo-form input");
+
+const toDoForm = document.getElementById("todo-form");
+const toDoInput = toDoForm.querySelector("input");
+const toDoList = document.getElementById("todo-list");
+
+//
+function handleToDoSubmit(event){
+    // 브라우저의 기본동작을 막아줌
+    event.preventDefault();
+    // Input.value 지우기전 값을 저장
+    const newTodo = toDoInput.value;
+    // toDoInput값을 ""으로 변경 Input.value 값을 지움
+    toDoInput.value = "";
+}
+
+// submit이벤트가 일어날떄 handleToDoSubmit 실행
+toDoForm.addEventListener("submit", handleToDoSubmit)
