@@ -1077,10 +1077,89 @@ document.body.appendChild(bgImage);
 //////////////////////////////////////////////////////////////////
 // #7.2 todo.js
 
+// const toDoForm = document.getElementById("todo-form");
+// const toDoInput = toDoForm.querySelector("input");
+// const toDoList = document.getElementById("todo-list");
+
+// function deleteToDo(event) {
+//     // event에서 terget은 html element, parentElement = 클릭된 element의 부모
+//     const li = event.target.parentElement;
+//     li.remove();
+// }
+
+// // todo를 그리는 역할을 담당할 함수
+// function paintToDo(newTodo) {
+//     // HTML요소를 추가 - li
+//     const li = document.createElement("li");
+//     // HTML요소를 추가 - span
+//     const span = document.createElement("span");
+//     // newTodo의 값을 span의 안에 Text로 넣기
+//     span.innerText = newTodo;
+//     // HTML요소를 추가 - button
+//     const button = document.createElement("button");
+//     // ❌ 값을 button의 안에 Text로 넣기
+//     button.innerText = "❌";
+//     // click이벤트 발생시 deleteToDo실행
+//     button.addEventListener("click", deleteToDo);
+//     // 자식 목록 끝에 매개변수 span 전달/ li의 자식노드 span, button이됨
+//     li.appendChild(span);
+//     li.appendChild(button);
+//     // toDoList(id="todo-list")의 자식노드 li
+//     toDoList.appendChild(li);
+// }
+
+// function handleToDoSubmit(event) {
+//     // 브라우저의 기본동작을 막아줌
+//     event.preventDefault();
+//     // Input.value 지우기전 값을 저장
+//     const newTodo = toDoInput.value;
+//     // toDoInput값을 ""으로 변경 Input.value 값을 지움
+//     toDoInput.value = "";
+//     paintToDo(newTodo);
+// }
+
+// // submit이벤트가 일어날떄 handleToDoSubmit 실행
+// toDoForm.addEventListener("submit", handleToDoSubmit)
+
+
+//////////////////////////////////////////////////////////////////
+// # 7.3 
+// localStorage
+// - 브라우저에 key-value 값을 Storage에 저장할 수 있다
+// - 저장한 데이터는 세션간에 공유된다
+// - 세션이 바뀌어도 저장한 데이터가 유지된다
+// - array를 저장할수 없다. 오직 텍스트만 저장 가능
+// - 중복되면 리센되어버림
+
+// JSON : JSON은 JavaScript Object Notation의 약자로, 브라우저와 서버사이에서 오고가는 데이터의 형식
+// JSON.stringify() : 자바스크립트의 값을 JSON 문자열로 변환
+// JSON.stringify(value, replacer, space)
+// value(필수): JSON 문자열로 변환할 값(배열, 객체, 또는 숫자, 문자 등이 될 수 있다.)
+// replacer(선택): 함수 또는 배열이 될 수 있다. 이 값이 null 이거나 제공되지 않으면, 객체의 모든 속성들이 JSON 문자열 결과에 포함
+
+// // toDos array를 localStorage에 넣는 함수 : 문자열로 저장
+// function seveToDos() {
+//     localStorage.setItem("todos", toDos);
+// }
+
+// // 이렇게 바꿈
+// // toDos array를 localStorage에 넣는 함수 : 배열로 저장가능
+// function seveToDos() {
+//     localStorage.setItem("todos", JSON.stringify(toDos));
+// }
+
 const toDoForm = document.getElementById("todo-form");
 const toDoInput = toDoForm.querySelector("input");
 const toDoList = document.getElementById("todo-list");
 
+const toDos = [];
+
+// toDos array를 localStorage에 넣는 함수
+function seveToDos() {
+    localStorage.setItem("todos", JSON.stringify(toDos));
+}
+
+// todo를 삭제하는 함수
 function deleteToDo(event) {
     // event에서 terget은 html element, parentElement = 클릭된 element의 부모
     const li = event.target.parentElement;
@@ -1115,7 +1194,12 @@ function handleToDoSubmit(event) {
     const newTodo = toDoInput.value;
     // toDoInput값을 ""으로 변경 Input.value 값을 지움
     toDoInput.value = "";
+    // toDos array를 가져와 newTodo를 push
+    toDos.push(newTodo);
+    // newTodo를 그린다.
     paintToDo(newTodo);
+    // toDos array를 localStorage 저장
+    seveToDos();
 }
 
 // submit이벤트가 일어날떄 handleToDoSubmit 실행

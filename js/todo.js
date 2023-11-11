@@ -2,6 +2,14 @@ const toDoForm = document.getElementById("todo-form");
 const toDoInput = toDoForm.querySelector("input");
 const toDoList = document.getElementById("todo-list");
 
+const toDos = [];
+
+// toDos array를 localStorage에 넣는 함수
+function seveToDos() {
+    localStorage.setItem("todos", JSON.stringify(toDos));
+}
+
+// todo를 삭제하는 함수
 function deleteToDo(event) {
     // event에서 terget은 html element, parentElement = 클릭된 element의 부모
     const li = event.target.parentElement;
@@ -36,7 +44,12 @@ function handleToDoSubmit(event) {
     const newTodo = toDoInput.value;
     // toDoInput값을 ""으로 변경 Input.value 값을 지움
     toDoInput.value = "";
+    // toDos array를 가져와 newTodo를 push
+    toDos.push(newTodo);
+    // newTodo를 그린다.
     paintToDo(newTodo);
+    // toDos array를 localStorage 저장
+    seveToDos();
 }
 
 // submit이벤트가 일어날떄 handleToDoSubmit 실행
