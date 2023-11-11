@@ -2,21 +2,23 @@ const toDoForm = document.getElementById("todo-form");
 const toDoInput = toDoForm.querySelector("input");
 const toDoList = document.getElementById("todo-list");
 
+const TODOS_KEY = "todos";
+
 const toDos = [];
 
-// toDos array를 localStorage에 넣는 함수
+// 5.toDos array를 localStorage에 넣는 함수
 function seveToDos() {
-    localStorage.setItem("todos", JSON.stringify(toDos));
+    localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
 }
 
-// todo를 삭제하는 함수
+// 4.todo를 삭제하는 함수
 function deleteToDo(event) {
     // event에서 terget은 html element, parentElement = 클릭된 element의 부모
     const li = event.target.parentElement;
     li.remove();
 }
 
-// todo를 그리는 역할을 담당할 함수
+// 1.todo를 그리는 역할을 담당할 함수
 function paintToDo(newTodo) {
     // HTML요소를 추가 - li
     const li = document.createElement("li");
@@ -37,6 +39,7 @@ function paintToDo(newTodo) {
     toDoList.appendChild(li);
 }
 
+// 2.Submit버튼을 눌렀을 떄 실행되는 것을 모아 놓은 함수(계속추가)
 function handleToDoSubmit(event) {
     // 브라우저의 기본동작을 막아줌
     event.preventDefault();
@@ -52,5 +55,20 @@ function handleToDoSubmit(event) {
     seveToDos();
 }
 
-// submit이벤트가 일어날떄 handleToDoSubmit 실행
-toDoForm.addEventListener("submit", handleToDoSubmit)
+// 3. submit이벤트가 일어날떄 handleToDoSubmit 실행
+toDoForm.addEventListener("submit", handleToDoSubmit);
+
+// 6. localStorage 저장되어있는 값을 변수에 담는다.
+const savedToDos = localStorage.getItem(TODOS_KEY);
+// 기본문자열값 출력(test)
+//console.log(seveToDos);
+
+// 7. savedToDos(localStorage가저온 값)가 null 아니면
+if(seveToDos !== null) {
+    // 형변환 실행해서 변수에 담는다.
+    const parsedToDos = JSON.parse(savedToDos);
+    // 형변환한 json값 출력(test)
+    //console.log(parsedToDos);
+    // parsedToDos 형변환된 배열값에 각각 적용하여 "메시지" + item 값을 콘솔에 출력
+    parsedToDos.forEach((item) => console.log("this is the turn of", item));
+}
