@@ -4,7 +4,7 @@ const toDoList = document.getElementById("todo-list");
 
 const TODOS_KEY = "todos";
 
-const toDos = [];
+let toDos = [];
 
 // 5.toDos array를 localStorage에 넣는 함수
 function seveToDos() {
@@ -67,8 +67,11 @@ const savedToDos = localStorage.getItem(TODOS_KEY);
 if(seveToDos !== null) {
     // 형변환 실행해서 변수에 담는다.
     const parsedToDos = JSON.parse(savedToDos);
+    // toDos에 parsedToDos를 넣어 전에 있던 todo들을 복원
+    toDos = parsedToDos;
     // 형변환한 json값 출력(test)
     //console.log(parsedToDos);
     // parsedToDos 형변환된 배열값에 각각 적용하여 "메시지" + item 값을 콘솔에 출력
-    parsedToDos.forEach((item) => console.log("this is the turn of", item));
+    parsedToDos.forEach(paintToDo);
 }
+
