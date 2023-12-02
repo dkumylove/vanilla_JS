@@ -1506,3 +1506,32 @@ if (savedToDos !== null) {
     // parsedToDos 형변환된 배열값에 각각 적용하여 "메시지" + item 값을 콘솔에 출력
     parsedToDos.forEach(paintToDo);
 }
+
+//////////////////////////////////////////////////////////////////
+// # 8.0 weather.js
+// navigator 객체는 브라우저와 관련된 정보를 컨트롤 합니다. 브라우저에 대한 버전, 정보, 종류 등 관련된 정보를 제공
+// navigator.속성
+// Geolocation API는 사용자의 현재 위치를 가져오는 API로, 지도에 사용자 위치를 표시하는 등 다양한 용도로 사용
+// navigator.geolocation 객체를 통해 사용
+// getCurrentPosition() 메소드를 호출해서 사용자의 현재 위치를 얻을 수 있다.
+// navigator.geolocation.getCurrentPosition(success, error, [options])
+// success : GeolocationPosition 객체를 유일한 매개변수로 받는 콜백 함수
+// error (Optional) : GeolocationPositionError 객체를 유일한 매개변수로 받는 콜백 함수
+
+// 위치를 성공적으로 받았을때 실행되는 함수
+function onGeoOk(position){
+    // 위도
+    const lat = position.coords.latitude;
+    // 경도
+    const lng = position.coords.longitude;
+    // 사용자의 위치정보 출력
+    console.log("You live in", lat, lng);
+}
+
+// 위치를 받는데 에러가 발생행했을떄 실행되는 함수
+function onGeoError(){
+    alert("Can't find you. No weather for you.");
+}
+
+// 브라우저에관한정보제공.사용자의현재위치가져오는API.위치얻는메소드()
+navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError)
