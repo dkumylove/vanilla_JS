@@ -1,3 +1,44 @@
 .hidden {
     display: none;
 }
+
+.background-img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -100;
+}
+
+.userName,
+.side-box,
+.bottom-box {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 70px;
+  box-shadow: var(--btn-shadow);
+}
+
+.userName {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+.userName {
+    width: 55vw;
+    height: 13vh;
+    margin-bottom: 4vh;
+}
+
+.userName input {
+    height: 30px;
+    width: 450px;
+    font-size: 15px;
+    background-color: unset;
+    border: unset;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.7);
+    text-align: center;
+    font-weight: 500;
+}

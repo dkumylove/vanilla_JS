@@ -5,7 +5,7 @@ const images = [ "0.jpg", "1.jpg", "2.jpg" ];
 const chosenImage = images[Math.floor(Math.random() * images.length)];
 
 // HTML요소를 추가하는 코드 - img
-const bgImage = document.createElement("img");
+const bgImage = document.querySelector('.background-img');
 
 // 코드 문자열형식으로 만들기
 bgImage.src = `img/${chosenImage}`;
