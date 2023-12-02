@@ -1518,20 +1518,32 @@ if (savedToDos !== null) {
 // success : GeolocationPosition 객체를 유일한 매개변수로 받는 콜백 함수
 // error (Optional) : GeolocationPositionError 객체를 유일한 매개변수로 받는 콜백 함수
 
-// 위치를 성공적으로 받았을때 실행되는 함수
-function onGeoOk(position){
-    // 위도
-    const lat = position.coords.latitude;
-    // 경도
-    const lng = position.coords.longitude;
-    // 사용자의 위치정보 출력
-    console.log("You live in", lat, lng);
-}
+// // 위치를 성공적으로 받았을때 실행되는 함수
+// function onGeoOk(position){
+//     // 위도
+//     const lat = position.coords.latitude;
+//     // 경도
+//     const lng = position.coords.longitude;
+//     // 사용자의 위치정보 출력
+//     console.log("You live in", lat, lng);
+// }
 
-// 위치를 받는데 에러가 발생행했을떄 실행되는 함수
-function onGeoError(){
-    alert("Can't find you. No weather for you.");
-}
+// // 위치를 받는데 에러가 발생행했을떄 실행되는 함수
+// function onGeoError(){
+//     alert("Can't find you. No weather for you.");
+// }
 
-// 브라우저에관한정보제공.사용자의현재위치가져오는API.위치얻는메소드()
-navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError)
+// // 브라우저에관한정보제공.사용자의현재위치가져오는API.위치얻는메소드()
+// navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError)
+
+//////////////////////////////////////////////////////////////////
+// # 8.1 weather.js
+// fetch() : 원격 API를 간편하게 호출할 수 있도록 브라우저에서 제공하는 함수
+// fetch() 함수는 첫번째 인자로 URL, 두번째 인자로 옵션 객체를 받고, Promise 타입의 객체를 반환
+// 반환된 객체는, API 호출이 
+//      성공했을 경우에는 응답(response) 객체를 resolve하고, 
+//      실패했을 경우에는 예외(error) 객체를 reject함
+// .then() 함수는 JavaScript에서 비동기 코드를 작성하는 데 사용되는 Promise의 메서드
+// 이 함수는 프로미스가 이행되거나 거부될 때 실행될 콜백 함수를 취함
+// 프로미스가 이행되면 .then() 함수는 프로미스의 결과를 콜백 함수의 첫 번째 인수로 전달
+// 프로미스가 거부되면 .then() 함수는 프로미스의 오류를 콜백 함수의 첫 번째 인수로 전달
