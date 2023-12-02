@@ -15,6 +15,8 @@ function seveToDos() {
 function deleteToDo(event) {
     // event에서 terget은 html element, parentElement = 클릭된 element의 부모
     const li = event.target.parentElement;
+    // 콘솔에 리스트의 id 출력
+    console.log(li.id);
     li.remove();
 }
 
@@ -22,10 +24,12 @@ function deleteToDo(event) {
 function paintToDo(newTodo) {
     // HTML요소를 추가 - li
     const li = document.createElement("li");
+    // HTML요소를 추가 - li에 id 넣기
+    il.id = newTodo.id
     // HTML요소를 추가 - span
     const span = document.createElement("span");
     // newTodo의 값을 span의 안에 Text로 넣기
-    span.innerText = newTodo;
+    span.innerText = newTodo.text;
     // HTML요소를 추가 - button
     const button = document.createElement("button");
     // ❌ 값을 button의 안에 Text로 넣기
@@ -47,10 +51,15 @@ function handleToDoSubmit(event) {
     const newTodo = toDoInput.value;
     // toDoInput값을 ""으로 변경 Input.value 값을 지움
     toDoInput.value = "";
-    // toDos array를 가져와 newTodo를 push
-    toDos.push(newTodo);
-    // newTodo를 그린다.
-    paintToDo(newTodo);
+    // Input.value 지우기전 값을 저장한 값과 함께 id를 부여함
+    const newTodoObj = {
+        text:newTodo,
+        id: Date.now(),
+    }
+    // toDos array를 가져와 newTodoObj를 push
+    toDos.push(newTodoObj);
+    // newTodoObj를 그린다.
+    paintToDo(newTodoObj);
     // toDos array를 localStorage 저장
     seveToDos();
 }
@@ -64,9 +73,9 @@ const savedToDos = localStorage.getItem(TODOS_KEY);
 //console.log(seveToDos);
 
 // 7. savedToDos(localStorage가저온 값)가 null 아니면
-if(seveToDos !== null) {
+if(sevedToDos !== null) {
     // 형변환 실행해서 변수에 담는다.
-    const parsedToDos = JSON.parse(savedToDos);
+    const parsedToDos = JSON.parse(sevedToDos);
     // toDos에 parsedToDos를 넣어 전에 있던 todo들을 복원
     toDos = parsedToDos;
     // 형변환한 json값 출력(test)
@@ -74,4 +83,3 @@ if(seveToDos !== null) {
     // parsedToDos 형변환된 배열값에 각각 적용하여 "메시지" + item 값을 콘솔에 출력
     parsedToDos.forEach(paintToDo);
 }
-
